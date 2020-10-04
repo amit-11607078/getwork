@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  display: flex;
 }
 
 .App-logo {
@@ -36,3 +37,46 @@
     transform: rotate(360deg);
   }
 }
+
+.grid {
+  padding-left: 30px !important;
+  padding-right: 30px;
+}
+
+/* .MuiAppBar-colorPrimary {
+  background-color: antiquewhite;
+} */
+
+.datatable {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.dashboard {
+  font-family: Roboto !important;
+  background-color: #404040;
+  font-size: 1rem !important;
+  color: rgb(173, 166, 166);
+  font-weight: bold !important;
+}
+.list {
+  /* font-family: Roboto !important; */
+  background-color: #404040;
+  font-size: 15px !important;
+  color: rgb(173, 166, 166);
+}
+
+.searchbar {
+  display: flex !important;
+  width: 250px;
+}
+
+
+/*
+#nested-list-subheader {
+  color: rgb(173, 166, 166);
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.nested {
+} */
