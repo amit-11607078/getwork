@@ -4,7 +4,7 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 import { fetchData } from "./api";
 import { NativeSelect, FormControl } from '@material-ui/core';
 
-export default function SearchBar(onHandelChange) {
+export default function SearchBar({onHandelChange}) {
 
   const [fetchedData, setFetchedData] = useState([]);
 
@@ -12,6 +12,7 @@ export default function SearchBar(onHandelChange) {
         const fetchAPI = async () => {
 
           setFetchedData(await fetchData());
+          console.log(fetchedData);
     }
 
         fetchAPI();
@@ -23,7 +24,7 @@ export default function SearchBar(onHandelChange) {
       <FormControl className="searchbar">
           <NativeSelect defaultValue="" onChange={(e) => onHandelChange(e.target.value)}>
               <option value="">Employee Name</option>
-              {fetchedData.map( (option, i) => <option key={i} value={option.employee_name} >{option.employee_name}</option>)}
+              {fetchedData && fetchedData.map( (option, i) => <option key={i} value={option.employee_name} >{option.employee_name}</option>)}
           </NativeSelect>
       </FormControl>
   )

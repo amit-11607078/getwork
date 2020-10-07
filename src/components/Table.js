@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 
 import { DataGrid } from "@material-ui/data-grid";
 //import { fetchData } from "./api";
@@ -21,8 +21,9 @@ const columns = [
   { field: "employee_image", headerName: "Employee Image", width: 150 },
 ];
 
-const rows = [
-  {
+
+const rows = 
+ [ {
     id: "1",
     employee_name: "Tiger Nixon",
     employee_salary: "320800",
@@ -194,25 +195,44 @@ const rows = [
 
 export default function DataTable({data}) {
   
-  const [newData, setNewData] = React.useState([]);
+  const [newData, setNewData] = useState(data);
+  
+  
+  
+     
+      
 
 
-  React.useEffect(() => {
+  useEffect(() => {
     const fetchAPI =  () => {
 
-      setNewData( {data});
-      // console.log({newData});
+      setNewData( data);
+      console.log(newData);
 }
 
     fetchAPI();
 }, [data]);
   
-  if(!data ){
-    return "loading...";
-   }
+  // if(!data ){
+  //   return "loading...";
+  //  }
   return (
     <div style={{ height: 370, width: "100%" }} className="datatable">
-      <DataGrid rows={rows} columns={columns} pageSize={5} checkboxSelection />
+      <DataGrid rows={rows}
+      // {data && data.map((option, i)=> {return {
+      //     id: option.id,
+      //     employee_name: option.employee_name,
+      //     employee_salary: option.employee_salary,
+      //     employee_age: option.employee_age,
+      //     profile_image: option.profile_image 
+      //     }
+      //     })
+      // }
+      columns={columns} 
+      pageSize={5} 
+      checkboxSelection 
+
+      />
     </div>
   );
 }
